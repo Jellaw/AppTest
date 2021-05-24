@@ -37,8 +37,8 @@ public class ProfileFragment extends Fragment {
     }
 
     private void addUser() {
-        users.add(new User(R.drawable.backgroud_ava, "Su","20","University degree","Vietnam"));
-        users.add(new User(R.drawable.backgroud_ava, "Duy","20","University degree","Vietnam"));
+        users.add(new User(R.drawable.backgroud_ava, "Le Anh","0","0","0"));
+        users.add(new User(R.drawable.backgroud_ava, "Duy","0","0","0"));
         initRecyclerViewUser();
     }
 

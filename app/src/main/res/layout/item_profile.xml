@@ -4,40 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="#CD3F51B5">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgAva"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_margin="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:background="#00FFFFFF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/bovien"
         android:orientation="vertical"
         android:padding="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imgAva"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.582"
-        app:layout_constraintStart_toStartOf="@+id/imgAva"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3">
 
         <TextView
             android:id="@+id/txtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="Duy"
-            android:textSize="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +47,8 @@
         <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
@@ -66,47 +62,61 @@
                 app:srcCompat="@drawable/line1" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/ageInfor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="tuoi"
+                android:textColor="#9F9B9B"
+                android:textSize="12sp" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="5dp"
                 android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 app:srcCompat="@drawable/line2" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/studyInfor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="hocvan"
+                android:textColor="#9F9B9B"
+                android:textSize="12sp" />
 
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="5dp"
                 android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 app:srcCompat="@drawable/line3" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/languageInfor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="language"
+                android:textColor="#9F9B9B"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout6"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:weightSum="4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -114,36 +124,44 @@
             app:layout_constraintTop_toTopOf="@+id/guideline2">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/accInforImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/calendar_circle" />
+                android:background="@drawable/calendar_circle"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_baseline_calendar_today_24" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/reloadInforImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/refresh_circle" />
+                android:background="@drawable/refresh_circle"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_baseline_refresh_24" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/editInforImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/edit_circle" />
+                android:background="@drawable/edit_circle"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_baseline_edit_24" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/delInforImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/del_circle" />
+                android:background="@drawable/del_circle"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_baseline_delete_24" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -153,7 +171,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.26" />
+        app:layout_constraintGuide_percent="0.22" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -161,5 +179,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.52" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgAva"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/botron"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

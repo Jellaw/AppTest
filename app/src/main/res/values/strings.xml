@@ -13,4 +13,5 @@
     <string name="menu_share">Chia sẻ</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="linkInfor"><u>https://www.campbellcg.ca</u></string>
 </resources>

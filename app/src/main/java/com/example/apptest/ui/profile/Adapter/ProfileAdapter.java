@@ -38,6 +38,9 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.img.setImageResource(users.get(position).getImg());
         holder.name.setText(users.get(position).getName());
+        holder.age.setText("Tuổi: "+users.get(position).getAge());
+        holder.study.setText("Trình độ học vấn: "+users.get(position).getAcademic_level());
+        holder.language.setText("Ngôn ngữ chính: "+users.get(position).getLanguage());
     }
 
     @Override
@@ -47,12 +50,15 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         CircleImageView img;
-        TextView name;
+        TextView name,age,language,study;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.imgAva);
             name=itemView.findViewById(R.id.txtName);
+            age=itemView.findViewById(R.id.ageInfor);
+            language=itemView.findViewById(R.id.languageInfor);
+            study=itemView.findViewById(R.id.studyInfor);
         }
     }
 }

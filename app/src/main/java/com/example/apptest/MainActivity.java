@@ -1,10 +1,12 @@
 package com.example.apptest;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.apptest.ui.about.AboutFragment;
 import com.example.apptest.ui.advisory.AdvisoryFragment;
@@ -23,6 +25,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private FragmentManager manager;
@@ -30,45 +35,49 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
+    TextView profileText, historyText, advisoryText, shareText, languageText, guideText, aboutText;
+    ColorStateList oldColors;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+        oldColors =  historyText.getTextColors(); //save original colors
         setSupportActionBar(toolbar);
+        setBackgroundColor(profile,profileText);
         initProfileFragment();
         profile.setOnClickListener(view -> {
-            setBackgroundColor(profile);
+            setBackgroundColor(profile,profileText);
             initProfileFragment();
             drawer.close();
         });
         history.setOnClickListener(view -> {
-            setBackgroundColor(history);
+            setBackgroundColor(history,historyText);
             initHistoryFragment();
             drawer.close();
         });
         tuvan.setOnClickListener(view -> {
-            setBackgroundColor(tuvan);
+            setBackgroundColor(tuvan,advisoryText);
             initTuvanFragment();
             drawer.close();
         });
         share.setOnClickListener(view -> {
-            setBackgroundColor(share);
+            setBackgroundColor(share,shareText);
             initShareFragment();
             drawer.close();
         });
         language.setOnClickListener(view -> {
-            setBackgroundColor(language);
+            setBackgroundColor(language,languageText);
             initLanguageFragment();
             drawer.close();
         });
         guide.setOnClickListener(view -> {
-            setBackgroundColor(guide);
-            initShareFragment();
+            setBackgroundColor(guide,guideText);
+            initGuideFragment();
             drawer.close();
         });
         about.setOnClickListener(view -> {
-            setBackgroundColor(about);
+            setBackgroundColor(about,aboutText);
             initAboutFragment();
             drawer.close();
         });
@@ -85,17 +94,33 @@ public class MainActivity extends AppCompatActivity {
          language=findViewById(R.id.lang);
          guide=findViewById(R.id.guide);
          about=findViewById(R.id.about);
+         profileText=findViewById(R.id.profileText);
+         historyText=findViewById(R.id.historyText);
+         advisoryText=findViewById(R.id.advisoryText);
+         shareText=findViewById(R.id.shareText);
+         languageText=findViewById(R.id.languageText);
+         guideText=findViewById(R.id.guideText);
+         aboutText=findViewById(R.id.aboutText);
+
     }
-    private void setBackgroundColor(View v){
-        v.setBackgroundColor(Color.parseColor("#80EDEAEA"));
-        new CountDownTimer(500, 1000) {
-            @Override
-            public void onTick(long l) {
-            }
-            public void onFinish() {
-                v.setBackgroundColor(Color.parseColor("#00000000"));
-            }
-        }.start();
+    private void setBackgroundColor(View v, TextView tv){
+        v.setBackgroundResource(R.drawable.background_drawer);
+        List<View> views =new ArrayList<>();
+        views.add(profile); views.add(history); views.add(tuvan);
+        views.add(share); views.add(language); views.add(guide); views.add(about);
+        views.remove(v);
+        for (View view:views){
+            view.setBackgroundResource(R.drawable.backgroud_drawer_disable);
+        }
+        tv.setTextColor(Color.parseColor("#D74F61C3"));
+        List<TextView> list_tv = new ArrayList<>();
+        list_tv.add(profileText);list_tv.add(historyText);list_tv.add(advisoryText);
+        list_tv.add(shareText);list_tv.add(languageText);list_tv.add(guideText);list_tv.add(aboutText);
+        list_tv.remove(tv);
+        for (TextView textView: list_tv){
+            textView.setTextColor(oldColors);
+        }
+
     }
     private void initProfileFragment(){
         manager = getSupportFragmentManager();
